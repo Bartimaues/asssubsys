@@ -1,6 +1,7 @@
 package com.uniwork.asssubsys.controller;
 
 
+
 import com.uniwork.asssubsys.dto.UserDto;
 import com.uniwork.asssubsys.entity.User;
 import com.uniwork.asssubsys.service.UserService;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
-
 
 @Controller
 public class AuthController {
@@ -35,6 +35,7 @@ public class AuthController {
     public String login(){
         return "login";
     }
+
     // handler method to handle user registration form request
     @GetMapping("/register")
     public String showRegistrationForm(Model model){
@@ -72,6 +73,4 @@ public class AuthController {
         model.addAttribute("users", users);
         return "users";
     }
-
-
 }
