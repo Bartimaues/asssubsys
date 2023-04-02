@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Submit Assignment</title>
+</head>
+<body>
+<h1>Submit Assignment</h1>
+<form action="#" th:action="@{/submitAssignment}" method="post">
+  <input type="hidden" th:field="*{student.id}">
+  <input type="hidden" th:field="*{assignment.id}">
+  <div>
+    <label for="fileUrl">File URL:</label>
+    <input type="text" id="fileUrl" name="fileUrl" required>
+  </div>
+  <div>
+    <label for="submissionDateTime">Submission Date and Time:</label>
+    <input type="datetime-local" id="submissionDateTime" name="submissionDateTime" required>
+  </div>
+  <div>
+    <label for="submissionText">Submission Text:</label>
+    <textarea id="submissionText" name="submissionText" rows="10" required></textarea>
+  </div>
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+</form>
+</body>
+</html>
