@@ -24,5 +24,22 @@
     </tr>
     </tbody>
 </table>
+<form action="/courses" method="post" th:object="${course}">
+    <div>
+        <label for="courseTitle">Course Title:</label>
+        <input type="text" id="courseTitle" name="courseTitle" required/>
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+    </div>
+    <div>
+        <label for="courseCredits">Course Credits:</label>
+        <input type="number" id="courseCredits" name="courseCredits" min="1"  required/>
+    </div>
+    <button type="submit">Create Course</button>
+</form>
+
+
 </body>
 </html>

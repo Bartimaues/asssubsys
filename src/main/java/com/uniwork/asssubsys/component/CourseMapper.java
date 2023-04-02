@@ -10,6 +10,8 @@ public class CourseMapper {
         Course course = new Course();
         course.setId(courseDto.getId());
         course.setCourseTitle(courseDto.getCourseTitle());
+        course.setDescription(courseDto.getDescription());
+        course.setCourseCredits(courseDto.getCourseCredits());
         // set other fields as needed
         return course;
     }

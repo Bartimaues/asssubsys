@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,8 +32,19 @@ public class CourseDashboardController {
                 .collect(Collectors.toList());
         System.out.println("Number of courses mapped: " + courses.size());
         model.addAttribute("courses", courses);
+        model.addAttribute("course", new CourseDto());
         return "courses";
     }
 
+    @PostMapping("/courses")
+    public String addCourse(@ModelAttribute("course") CourseDto courseDto) {
+        courseService.addCourse(courseDto.getCourseTitle(), courseDto.getDescription(), courseDto.getCourseCredits());
+        return "redirect:/courses";
+    }
 
+    @PostMapping("/addCourse")
+    public String addCourseForm(@ModelAttribute("course") CourseDto courseDto) {
+        courseService.addCourse(courseDto.getCourseTitle(), courseDto.getDescription(), courseDto.getCourseCredits());
+        return "redirect:/courses";
+    }
 }
