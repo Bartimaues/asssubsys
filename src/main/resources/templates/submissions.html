@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Submission Dashboard</title>
+</head>
+<body>
+<h1>Submission Dashboard</h1>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Course Title</th>
+    <th>Description</th>
+    <th>Credits</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="course : ${courses}">
+    <td th:text="${course.id}"></td>
+    <td th:text="${course.courseTitle}"></td>
+    <td th:text="${course.description}"></td>
+    <td th:text="${course.courseCredits}"></td>
+  </tr>
+  </tbody>
+</table>
+<form action="/courses" method="post" th:object="${course}">
+  <div>
+    <label for="courseTitle">Course Title:</label>
+    <input type="text" id="courseTitle" name="courseTitle" required/>
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required></textarea>
+  </div>
+  <div>
+    <label for="courseCredits">Course Credits:</label>
+    <input type="number" id="courseCredits" name="courseCredits" min="1"  required/>
+  </div>
+  <button type="submit">Create Course</button>
+</form>
+<a class="nav-link active" aria-current="page" th:href="@{/users}">User Dashboard</a>
+
+
+</body>
+</html>
